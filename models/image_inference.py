@@ -1,6 +1,9 @@
 import numpy as np
 from PIL import Image
-from models.load_image_model import image_model, image_model_error, image_model_loaded
+try:
+    from .load_image_model import image_model, image_model_error, image_model_loaded
+except ImportError:
+    from models.load_image_model import image_model, image_model_error, image_model_loaded
 
 def preprocess_image(image_path):
     img = Image.open(image_path).convert("RGB")

@@ -1,14 +1,25 @@
 import os
+import sys
 import tempfile
 
 from fastapi import FastAPI, HTTPException
 from fastapi import File, UploadFile
 from pydantic import BaseModel
-from models.inference import analyze_local_file, analyze_media
-from models.load_audio_model import load_audio_model
-from models.load_image_model import load_image_model
-from models.load_video_model import load_video_model
-from utils.downloader import infer_media_type
+try:
+    from .models.inference import analyze_local_file, analyze_media
+    from .models.load_audio_model import load_audio_model
+    from .models.load_image_model import load_image_model
+    from .models.load_video_model import load_video_model
+    from .utils.downloader import infer_media_type
+except ImportError:
+    service_root = os.path.dirname(os.path.abspath(__file__))
+    if service_root not in sys.path:
+        sys.path.insert(0, service_root)
+    from models.inference import analyze_local_file, analyze_media
+    from models.load_audio_model import load_audio_model
+    from models.load_image_model import load_image_model
+    from models.load_video_model import load_video_model
+    from utils.downloader import infer_media_type
 
 app = FastAPI()
 

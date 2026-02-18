@@ -2,14 +2,24 @@ import cv2
 import numpy as np
 import torch
 
-from models.load_video_model import (
-    get_video_frame_interval,
-    get_video_max_frames,
-    video_device,
-    video_model,
-    video_model_error,
-    video_model_loaded,
-)
+try:
+    from .load_video_model import (
+        get_video_frame_interval,
+        get_video_max_frames,
+        video_device,
+        video_model,
+        video_model_error,
+        video_model_loaded,
+    )
+except ImportError:
+    from models.load_video_model import (
+        get_video_frame_interval,
+        get_video_max_frames,
+        video_device,
+        video_model,
+        video_model_error,
+        video_model_loaded,
+    )
 
 
 def _preprocess_frame(frame):

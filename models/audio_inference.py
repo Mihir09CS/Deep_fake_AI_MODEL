@@ -1,6 +1,9 @@
 import librosa
 import numpy as np
-from models.load_audio_model import audio_model, audio_model_error, audio_model_loaded
+try:
+    from .load_audio_model import audio_model, audio_model_error, audio_model_loaded
+except ImportError:
+    from models.load_audio_model import audio_model, audio_model_error, audio_model_loaded
 
 def extract_features(audio_path):
     audio, sr = librosa.load(audio_path, sr=16000, mono=True)

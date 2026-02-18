@@ -1,7 +1,13 @@
-from utils.downloader import download_media
-from models.audio_inference import predict_audio
-from models.image_inference import predict_image
-from models.video_inference import predict_video
+try:
+    from ..utils.downloader import download_media
+    from .audio_inference import predict_audio
+    from .image_inference import predict_image
+    from .video_inference import predict_video
+except ImportError:
+    from utils.downloader import download_media
+    from models.audio_inference import predict_audio
+    from models.image_inference import predict_image
+    from models.video_inference import predict_video
 import os
 
 def classify_risk(prob):
