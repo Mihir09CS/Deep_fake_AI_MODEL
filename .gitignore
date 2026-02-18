@@ -1,0 +1,6 @@
+models/*.h5
+models/*.pkl
+__pycache__/
+*.pyc
+temp_audio.wav
+temp_image.jpg
