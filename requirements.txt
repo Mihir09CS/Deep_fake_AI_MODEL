@@ -6,3 +6,10 @@ joblib==1.4.2
 soundfile==0.12.1
 requests==2.32.3
 scikit-learn==1.4.2
+Pillow==10.4.0
+tensorflow-cpu==2.16.1
+opencv-python-headless==4.10.0.84
+torch==2.4.1
+timm
+python-multipart==0.0.9
+yt-dlp==2025.2.19

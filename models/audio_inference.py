@@ -1,6 +1,6 @@
 import librosa
 import numpy as np
-from models.load_audio_model import audio_model
+from models.load_audio_model import audio_model, audio_model_error, audio_model_loaded
 
 def extract_features(audio_path):
     audio, sr = librosa.load(audio_path, sr=16000, mono=True)
@@ -22,6 +22,9 @@ def extract_features(audio_path):
 
 
 def predict_audio(audio_path):
+    if not audio_model_loaded or audio_model is None:
+        raise ValueError(f"Audio model unavailable: {audio_model_error or 'not loaded'}")
+
     features = extract_features(audio_path)
 
     features = features.reshape(1, -1)

@@ -1,5 +1,6 @@
 models/*.h5
 models/*.pkl
+models/*.pt
 __pycache__/
 *.pyc
 temp_audio.wav
