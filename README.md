@@ -6,7 +6,7 @@
 
 This service supports:
 - Audio model (`.pkl`)
-- Image model (`.h5`)
+- Image model (`.pkl`)
 - Video model (`.pt`, PyTorch)
 
 ## 2) Setup
@@ -19,7 +19,8 @@ pip install -r requirements.txt
 
 ## 3) Environment Variables
 - `AUDIO_MODEL_PATH` (default: `models/deepfake_audio_model.pkl`)
-- `IMAGE_MODEL_PATH` (default: `models/deepfake_image_model.h5`)
+- `IMAGE_MODEL_PATH` (default: `models/deepfake_image_model.pkl`)
+- `IMAGE_INPUT_SIZE` (default: `224`)
 - `VIDEO_MODEL_PATH` (default: `models/deepfake_video_model.pt`)
 - `VIDEO_FRAME_INTERVAL` (default: `5`)
 - `VIDEO_MAX_FRAMES` (default: `24`)
@@ -45,7 +46,7 @@ curl -X POST http://localhost:8000/analyze \
 ## 6) Deployment Notes
 - Ensure model files exist under `models/`:
   - `deepfake_audio_model.pkl`
-  - `deepfake_image_model.h5`
+  - `deepfake_image_model.pkl`
   - `deepfake_video_model.pt`
 - Keep this service reachable from backend (`AI_SERVICE_URL`).
 - Use HTTPS URL in backend env when deployed separately.
